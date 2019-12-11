@@ -1,3 +1,6 @@
+Учебный проект по созданию приложения на vue + vuetify
+https://medium.com/javascript-in-plain-english/implement-movie-app-with-vue-vuetify-axios-open-movie-database-api-d12290318cf9
+
 # movie-app
 
 ## Project setup
