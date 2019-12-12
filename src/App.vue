@@ -38,23 +38,27 @@
     </v-app-bar>
 
     <v-content>
-      <router-view></router-view>
+      <!--<router-view></router-view>-->
+      <test-component></test-component>
     </v-content>
   </v-app>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld';
-// import TestComponent from './components/TestComponent';
+import TestComponent from '@/components/TestComponent';
 
 export default {
   name: 'App',
 
   components: {
+      TestComponent
   },
 
-  data: () => ({
-    //
-  }),
+  data: function(){
+      return{
+
+      }
+  }
 };
 </script>

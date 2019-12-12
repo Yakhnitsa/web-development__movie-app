@@ -28,7 +28,11 @@ https://medium.com/javascript-in-plain-english/implement-movie-app-with-vue-vuet
 9.  Getting api key from 
     http://www.omdbapi.com/apikey.aspx?__EVENTTARGET=&__EVENTARGUMENT=&__LASTFOCUS=&__VIEWSTATE=%2FwEPDwUKLTIwNDY4MTIzNQ9kFgYCAQ9kFggCAQ8QDxYCHgdDaGVja2VkaGRkZGQCAw8QDxYCHwBnZGRkZAIFDxYCHgdWaXNpYmxlaGQCBw8WAh8BZ2QCAg8WAh8BaGQCAw8WAh8BaGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgMFC3BhdHJlb25BY2N0BQtwYXRyZW9uQWNjdAUIZnJlZUFjY3Q70lz2duvFWpi7KjqMV5Bfeiu%2F8XZfNDl5GeZkBw9M5A%3D%3D&__VIEWSTATEGENERATOR=5E550F58&__EVENTVALIDATION=%2FwEdAAjUveXue3qLFY2FjQgdgUYHmSzhXfnlWWVdWIamVouVTzfZJuQDpLVS6HZFWq5fYphdL1XrNEjnC%2FKjNya%2Bmqh8hRPnM5dWgso2y7bj7kVNLSFbtYIt24Lw6ktxrd5Z67%2F4LFSTzFfbXTFN5VgQX9Nbzfg78Z8BXhXifTCAVkevd%2FM3%2B1LlDH%2BEpR4wCViK8IATPCorai%2FJA3cV0kG3vG6P&at=freeAcct&Email2=transpmailbox%40gmail.com&FirstName=Yuriy&LastName=Yakhnitsa&TextArea1=Studying+project%2C+just+to+use+in+localhost%3A8080+for+personal+needs.&Button1=Submit
     
-10.
+10. Environment variable installation
+    create file .env.development.local
+    creating variables OMDb_API_KEY, OMDb_API_I
+    !!!Mark variables as VUE_APP_(SOME NAME) - without VUE_APP -it`s not working
+    use variables in the code like process.env.VUE_APP_OMDb_API_KEY
 11.
 
 
