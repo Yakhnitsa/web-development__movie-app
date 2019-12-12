@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
+   <!-- <v-app-bar
       app
       color="primary"
       dark
@@ -35,25 +35,21 @@
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
-    </v-app-bar>
+    </v-app-bar>-->
 
     <v-content>
-      <!--<router-view></router-view>-->
-      <test-component></test-component>
+      <div>App.vue component!</div>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld';
-import TestComponent from '@/components/TestComponent';
+// import TestComponent from '@/components/TestComponent';
 
 export default {
   name: 'App',
-
-  components: {
-      TestComponent
-  },
 
   data: function(){
       return{

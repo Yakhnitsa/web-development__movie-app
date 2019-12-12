@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div>Latest movie component</div>
         <v-container v-if="loading">
             <div class="text-xs-center">
                 <v-progress-circular
@@ -45,6 +46,15 @@
 <script>
     import axios from 'axios'
     export default {
+        data () {
+            return {
+                wholeResponse: [],
+                loading: true,
+                env: process.env,
+                apiKey: process.env.VUE_APP_OMDb_API_KEY,
+                httpLink: ''
+            }
+        },
 
         methods: {
             singleMovie (id) {
@@ -52,21 +62,25 @@
             }
         },
         mounted () {
+            this.httpLink = 'http://www.omdbapi.com/?s=indiana&apikey='+ this.apiKey + '&page=1&type=movie&Content-Type=application/json'
             axios
-                .get('http://www.omdbapi.com/?s=mummy&apikey=XXXXX&page=1&type=movie&Content-Type=application/json')
+                .get(this.httpLink)
                 .then(response => {
                     this.wholeResponse = response.data.Search
+                    this.loading = false
                 })
-                .catch(error => {
-                    console.log(error)
-                })
-        },
+                // .catch(error => {
+                //     console.log(error)
+                // })
+        }
 
 
     }
 </script>
 
 <style scoped>
-    .v-progress-circular
+    .v-progress-circular{
         /*margin: 1rem*/
+    }
+
 </style>
