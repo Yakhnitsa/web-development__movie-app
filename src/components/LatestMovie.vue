@@ -5,7 +5,7 @@
             <div class="text-xs-center">
                 <v-progress-circular
                         indeterminate
-                        :size="150"
+                        :size="40"
                         :width="8"
                         color="green">
                 </v-progress-circular>
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+    /* eslint-disable no-console */
+
     import axios from 'axios'
     export default {
         data () {
@@ -51,8 +53,6 @@
                 wholeResponse: [],
                 loading: true,
                 env: process.env,
-                apiKey: process.env.VUE_APP_OMDb_API_KEY,
-                httpLink: ''
             }
         },
 
@@ -61,17 +61,16 @@
                 this.$router.push('/movie/' + id)
             }
         },
-        mounted () {
-            this.httpLink = 'http://www.omdbapi.com/?s=indiana&apikey='+ this.apiKey + '&page=1&type=movie&Content-Type=application/json'
+        mounted: function () {
             axios
-                .get(this.httpLink)
+                .get('&s=horror')
                 .then(response => {
                     this.wholeResponse = response.data.Search
                     this.loading = false
                 })
-                // .catch(error => {
-                //     console.log(error)
-                // })
+                .catch(error => {
+                    console.log(error)
+                })
         }
 
 
@@ -80,7 +79,7 @@
 
 <style scoped>
     .v-progress-circular{
-        /*margin: 1rem*/
+        margin: 1rem
     }
 
 </style>
