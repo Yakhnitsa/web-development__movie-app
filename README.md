@@ -33,7 +33,9 @@ https://medium.com/javascript-in-plain-english/implement-movie-app-with-vue-vuet
     creating variables OMDb_API_KEY, OMDb_API_I
     !!!Mark variables as VUE_APP_(SOME NAME) - without VUE_APP -it`s not working
     use variables in the code like process.env.VUE_APP_OMDb_API_KEY
-11.
+11. Extract axios default URL in main.js
+    import axios from 'axios' 
+    axios.defaults.baseURL = 'http://www.omdbapi.com/?apikey=xxxxxx&page=1&type=movie&Content-Type=application/json'
 
 
 # movie-app
