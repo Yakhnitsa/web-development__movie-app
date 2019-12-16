@@ -36,7 +36,8 @@ https://medium.com/javascript-in-plain-english/implement-movie-app-with-vue-vuet
 11. Extract axios default URL in main.js
     import axios from 'axios' 
     axios.defaults.baseURL = 'http://www.omdbapi.com/?apikey=xxxxxx&page=1&type=movie&Content-Type=application/json'
-   
+12. Make Movie.vue for single movie component
+       
     TODO:
     - Создать header component
     - Настроить поиск

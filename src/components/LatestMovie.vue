@@ -31,7 +31,7 @@
                             </div>
                         </v-card-title>
                         <v-card-actions class="justify-center">
-                            <v-btn flat
+                            <v-btn text
                                    color="green"
                                    @click="singleMovie(item.imdbID)"
                             >View</v-btn>

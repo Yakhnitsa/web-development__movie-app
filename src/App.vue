@@ -38,7 +38,6 @@
     </v-app-bar>-->
 
     <v-content>
-      <div>App.vue component!</div>
       <router-view></router-view>
     </v-content>
   </v-app>
