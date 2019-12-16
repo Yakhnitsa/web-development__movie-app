@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LatestMovie from '@/components/LatestMovie'
+import MoviesCategory from '@/components/MoviesCategory'
 import Movie from '@/components/Movie'
 Vue.use(VueRouter)
 export default new VueRouter({
@@ -19,9 +20,9 @@ export default new VueRouter({
         },
         {
             path: '/category/:cat',
-            name: 'MoviesCat',
+            name: 'MoviesCategory',
             props: true,
-            component: Movie
+            component: MoviesCategory
         }
     ]
 })
