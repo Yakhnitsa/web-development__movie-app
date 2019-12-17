@@ -35,8 +35,45 @@
                                    color="green"
                                    @click="singleMovie(item.imdbID)"
                             >View</v-btn>
+                            <v-btn text
+                                   color="green"
+                                   @click="showMovieDetails(item)"
+                            >Detailes</v-btn>
                         </v-card-actions>
                     </v-card>
+                </v-flex>
+            </v-layout>
+
+            <v-layout row wrap>
+                <v-flex xs12>
+                    <div class="text-xs-center">
+                        <v-dialog v-model="showDetails"  width="500">
+                            <v-card>
+                                <v-card-title class="headline grey lighten-2" primary-title>
+                                    Movie details
+                                </v-card-title>
+                                <v-card-text>
+                                    <table style="width:100%" border="1" >
+                                        <tr>
+                                            <th>Source</th>
+                                            <th>About</th>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">Title</td>
+                                            <td align="center">{{movieDetails.Title}}</td>
+                                        </tr>
+                                    </table>
+                                </v-card-text>
+                                <v-divider></v-divider>
+                                <v-card-actions>
+                                    <v-spacer></v-spacer>
+                                    <v-btn color="primary" text @click="showDetails = false">
+                                        OK
+                                    </v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-dialog>
+                    </div>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -54,12 +91,18 @@
                 wholeResponse: [],
                 loading: true,
                 env: process.env,
+                showDetails: false,
+                movieDetails:[]
             }
         },
 
         methods: {
             singleMovie (id) {
                 this.$router.push('/movie/' + id)
+            },
+            showMovieDetails (movie) {
+                this.showDetails = true
+                this.movieDetails = movie
             }
         },
         mounted: function () {
