@@ -37,14 +37,20 @@
                             >View</v-btn>
                             <v-btn text
                                    color="green"
-                                   @click="showMovieDetails(item)"
+                                   @click="showMovieDetails(item.imdbID)"
                             >Detailes</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-flex>
             </v-layout>
 
-            <v-layout row wrap>
+            <movie-details
+                    :movieDetails="this.movieDetails"
+                    :showDetails="this.showDetails"
+                    v-on:toggle="toggleDetails()"
+            ></movie-details>
+
+            <!--<v-layout row wrap>
                 <v-flex xs12>
                     <div class="text-xs-center">
                         <v-dialog v-model="showDetails"  width="500">
@@ -75,7 +81,7 @@
                         </v-dialog>
                     </div>
                 </v-flex>
-            </v-layout>
+            </v-layout>-->
         </v-container>
     </div>
 </template>
@@ -83,9 +89,13 @@
 <script>
     /* eslint-disable no-console */
 
+    import MovieDetails from './MovieDetails'
     import axios from 'axios'
     export default {
         props:['cat'],
+        components:{
+            MovieDetails
+        },
         data () {
             return {
                 wholeResponse: [],
@@ -100,9 +110,20 @@
             singleMovie (id) {
                 this.$router.push('/movie/' + id)
             },
-            showMovieDetails (movie) {
-                this.showDetails = true
-                this.movieDetails = movie
+            showMovieDetails (id) {
+                axios
+                    .get('&i=' + id)
+                    .then(response => {
+                        this.movieDetails = response.data
+                        this.showDetails = true
+
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            },
+            toggleDetails(){
+                this.showDetails = false
             }
         },
         mounted: function () {
